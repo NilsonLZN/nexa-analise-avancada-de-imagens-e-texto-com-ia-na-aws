@@ -26,7 +26,7 @@ def get_lines() -> list[str]:
         with open("response.json", "r") as f:
             data: DetectDocumentTextResponseTypeDef = json.loads(f.read())
             blocks = data["Blocks"]
-        return [block["Text"] for block in blocks if block["BlockType"] == "LINE"]  # type: ignore
+        return [block["Text"] for block in blocks if block["BlockType"] == "LINE"]
     except IOError:
         detect_file_text()
     return []
